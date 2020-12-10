@@ -34,6 +34,7 @@ export default {
 <style lang="scss" scoped>
 .card-item {
   height: 160px;
+  cursor: pointer;
   &__content {
     max-height: calc(1.8rem * 3);
     overflow: hidden;

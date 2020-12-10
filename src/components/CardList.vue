@@ -13,6 +13,7 @@
         :title="card.title"
         :content="card.content"
         :theme="list.theme"
+        @click.native="openCardPreview(card)"
       />
     </Draggable>
   </div>
@@ -22,6 +23,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import Draggable from 'vuedraggable';
 import CardListItem from '@/components/CardListItem';
+
 export default {
   name: 'CardList',
   components: { Draggable, CardListItem },
@@ -55,6 +57,9 @@ export default {
           cardID: movedCard.id,
           newListID: this.list.id
         });
+    },
+    openCardPreview({ title, content }) {
+      this.$emit('preview', { title, content });
     }
   }
 };
@@ -65,5 +70,5 @@ export default {
   &__draggable {
     min-height: 200px;
   }
-}</style
->>
+}
+</style>
