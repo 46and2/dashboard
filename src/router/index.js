@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/create',
     name: 'CreateNew',
-    component: () => import('../views/CreateNewCard.vue')
+    component: () => import('../views/CreateCardView.vue')
   }
 ];
 

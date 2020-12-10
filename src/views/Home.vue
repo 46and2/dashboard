@@ -1,35 +1,26 @@
 <template>
   <div class="container">
-    <MainHeader />
-    <div class="columns">
-      <div class="column">
-        <Card title="Test" content="lorem ipsum" />
-      </div>
-      <div class="column">
-        <Card title="Test" content="lorem ipsum" />
-        <Card title="Test" content="lorem ipsum" />
-        <Card title="Test" content="lorem ipsum" />
-      </div>
-      <div class="column">
-        <Card title="Test" content="lorem ipsum" />
-        <Card title="Test" content="lorem ipsum" />
-      </div>
-      <div class="column">
-        <Card title="Test" content="lorem ipsum" />
-      </div>
+    <TheHeader />
+    <div class="columns is-multiline">
+      <CardList v-for="list in lists" :key="list.id" :list="list" />
     </div>
   </div>
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader';
-import Card from '@/components/Card';
+import TheHeader from '@/components/TheHeader';
+import CardList from '@/components/CardList';
 
 export default {
   name: 'Home',
   components: {
-    MainHeader,
-    Card
+    TheHeader,
+    CardList
+  },
+  computed: {
+    lists() {
+      return this.$store.state.lists;
+    }
   }
 };
 </script>
